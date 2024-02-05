@@ -1,5 +1,7 @@
 FROM php:8.3-fpm-bullseye AS base
 
+EXPOSE 5173
+
 WORKDIR /workspace
 
 # timezone environment
