@@ -39,6 +39,9 @@ FROM base AS development
 RUN <<EOF
   apt-get -y install --no-install-recommends \
     default-mysql-client
+  # Node.js のインストール
+  curl -sL https://deb.nodesource.com/setup_18.x | bash - \
+  && apt-get install -y nodejs
   apt-get clean
   rm -rf /var/lib/apt/lists/*
 EOF
