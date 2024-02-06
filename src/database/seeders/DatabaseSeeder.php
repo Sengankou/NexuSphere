@@ -4,19 +4,35 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Category;
+use App\Models\Subcategory;
+use App\Models\Accesslink;
 
 class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
      */
-    public function run(): void
+    public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // UserFactory を使用してユーザーを生成
+        $users = User::factory()->count(3)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        foreach($users as $user){
+            Category::factory()->count(3)->create([
+                'user_id' => $user->id
+            ])->each(function($category){
+                Subcategory::factory()->count(3)->create([
+                    'category_id' => $category->id
+                ])->each(function($subcategory){
+                    Accesslink::factory()->count(5)->create([
+                        'subcategory_id' => $subcategory->id,
+                        'user_id' => $subcategory->category->user_id
+                    ]);
+                });
+            });
+        }
+
     }
 }
