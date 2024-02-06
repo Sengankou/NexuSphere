@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Category;
-use Livewire\Attributes\Title;
 
 
 class CategoryController extends Controller
 {
-    #[Title('{{ $category->name }}')]
     public function showByName($categoryName)
     {
         // カテゴリ名でカテゴリを検索

@@ -24,7 +24,7 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-Route::get('/{category}', [CategoryController::class, 'showByName'])
+Route::get('/dashboard/{category}', [CategoryController::class, 'showByName'])
     ->middleware(['auth'])
     ->name('category.show');
 
