@@ -23,7 +23,7 @@ class Show extends Component
     {
         $this->favicon_urls = [];
         foreach ($this->accesslinks as $accesslink) {
-            $parsedUrl = parse_url($accesslink->link_url);
+            $parsedUrl = parse_url($accesslink->url);
             $domain = $parsedUrl['host'] ?? '';
 
             // GoogleのfaviconサービスURLにドメイン名を組み込む
