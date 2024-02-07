@@ -1,0 +1,10 @@
+<div class="flex flex-wrap justify-center items-center m-2 py-1 rounded-lg bg-slate-900/50 ring-1 inset-0">
+    @foreach ($accesslinks as $accesslink)
+        <a href={{ $accesslink->url }} target="_blank" class="my-2">
+            <div class="flex justify-center items-center p-3 mx-2 h-10 rounded bg-slate-900 hover:bg-blue-800 text-white hover:text-red-300 border-y-2 border-slate-100 hover:border-red-300" wire:key="{{ $accesslink->id }}">
+                <img class="favicon w-4 h-4" src="{{ $favicon_urls["$accesslink->id"] }}" >
+                <p class="m-1 text-xl">{{ $accesslink->name }}</p>
+            </div>
+        </a>
+    @endforeach
+</div>

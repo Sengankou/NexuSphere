@@ -13,6 +13,10 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                zenKurenaido: ['Zen Kurenaido', 'sans-serif'],
+                ralewayItalic: ['Raleway', 'sans-serif'],
+                cormorant: ['CormorantGaramond', 'serif'],
+                eczar: ['Eczar', 'serif'],
             },
         },
     },

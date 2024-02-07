@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,9 @@ Route::view('dashboard', 'dashboard')
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+
+Route::get('/dashboard/{category}', [CategoryController::class, 'showByName'])
+    ->middleware(['auth'])
+    ->name('category.show');
 
 require __DIR__.'/auth.php';

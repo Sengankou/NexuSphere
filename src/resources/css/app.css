@@ -1,3 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Raleway:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700&family=Raleway:ital,wght@1,500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        font-family: Proxima Nova, system-ui, sans-serif;
+    }
+}
+
+/* カスタム背景クラス */
+.bg-pages {
+    background-image: url('/public/images/background.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-top {
+    background-image: url('/public/images/bg_top.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* カスタムテキストクラス */
+.text-shadow-top {
+    text-shadow: 5px 0px 8px rgba(255, 219, 195, 0.7);
+}
