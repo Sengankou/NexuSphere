@@ -36,10 +36,18 @@ class Show extends Component
         }
     }
 
-    public function toggleShow($id)
+    public function editActivate($id)
     {
-        $this->link_editing[$id] = !$this->link_editing[$id];
+        $this->link_editing[$id] = true;
         Log::debug('Link editing state:', $this->link_editing);
+        $this->dispatch('edit-activated', subcat_id: $id);
+    }
+
+    public function editDeactivate($id)
+    {
+        $this->link_editing[$id] = false;
+        Log::debug('Link editing state:', $this->link_editing);
+        $this->dispatch('edit-deactivated', subcat_id: $id);
     }
 
     public function delete($id)

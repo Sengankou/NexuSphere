@@ -9,21 +9,21 @@
                             {{ $subcategory->name }}
                         </h3>
                         @if ($link_editing[$subcategory->id] === false)
-                            <button class="h-5 w-auto ml-2" wire:click="toggleShow({{ $subcategory->id }})">
+                            <button class="h-5 w-auto ml-2" wire:click="editActivate({{ $subcategory->id }})">
                                 <x-edit-logo class="m-0.5 p-0 w-auto h-auto fill-current text-slate-300 hover:text-red-400 rounded border border-slate-300 hover:border-red-400" />
                             </button>
                         @endif
                         @if ($link_editing[$subcategory->id] === true)
-                            <button class="h-5 w-auto mx-2 my-1 px-1 fill-current text-sm bg-black text-red-400 hover:text-slate-200 border border-red-400 hover:border-slate-200 rounded" wire:click="toggleShow({{ $subcategory->id }})">
+                            <button class="h-5 w-auto mx-2 my-1 px-1 fill-current text-sm bg-black text-red-400 hover:text-slate-200 border border-red-400 hover:border-slate-200 rounded" wire:click="editDeactivate({{ $subcategory->id }})">
                                 完了
                             </button>
                             <button class="h-5 w-auto ml-auto" wire:click="delete({{ $subcategory->id }})">
-                                <x-delete-logo2 class="mx-0.5 my-1 p-0 w-auto h-5 fill-current text-red-400 hover:text-slate-200" />
+                                <x-delete-logo2 class="mx-0.5 my-1 p-0 w-auto h-5 fill-current text-red-300 hover:text-red-600" />
                             </button>
                         @endif
                     </div>
 
-                    <livewire:accesslinks.show :subcategory_id="$subcategory->id" :wire:key="'subcategory-accesslinks-'.$subcategory->id" />
+                    <livewire:accesslinks.show :subcategory_id="$subcategory->id" :link_editing="$link_editing[$subcategory->id]" :wire:key="'subcategory-accesslinks-'.$subcategory->id" />
 
                     @if ($link_editing[$subcategory->id] === true)
                         <livewire:accesslinks.create :subcategory_id="$subcategory->id" />
