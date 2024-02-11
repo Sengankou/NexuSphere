@@ -32,7 +32,7 @@ class Create extends Component
         $this->name = '';
         $this->display_order++;
 
-        $this->dispatch('subcategory-created');
+        $this->dispatch('subcategory-modified');
     }
 
 

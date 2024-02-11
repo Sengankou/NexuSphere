@@ -14,13 +14,16 @@
                             </button>
                         @endif
                         @if ($link_editing[$subcategory->id] === true)
-                            <button class="h-5 w-auto ml-2" wire:click="toggleShow({{ $subcategory->id }})">
+                            <button class="h-5 w-auto mx-2 my-1 px-1 fill-current text-sm bg-black text-red-400 hover:text-slate-200 border border-red-400 hover:border-slate-200 rounded" wire:click="toggleShow({{ $subcategory->id }})">
+                                完了
+                            </button>
+                            <button class="h-5 w-auto ml-auto" wire:click="delete({{ $subcategory->id }})">
                                 <x-delete-logo2 class="mx-0.5 my-1 p-0 w-auto h-5 fill-current text-red-400 hover:text-slate-200" />
                             </button>
                         @endif
                     </div>
 
-                    <livewire:accesslinks.show :subcategory_id="$subcategory->id" :wire:key="'accesslinks-create-'.$subcategory->id" />
+                    <livewire:accesslinks.show :subcategory_id="$subcategory->id" :wire:key="'subcategory-accesslinks-'.$subcategory->id" />
 
                     @if ($link_editing[$subcategory->id] === true)
                         <livewire:accesslinks.create :subcategory_id="$subcategory->id" />

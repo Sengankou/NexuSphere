@@ -13,7 +13,7 @@
             type="text"
             class="placeholder:italic placeholder:text-slate-300 block w-5/12 text-white bg-slate-800 border-slate-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
         >
-        <x-primary-button class="m-0 h-8">{{ __('+') }}</x-primary-button>
+        <x-primary-button class="m-0 h-8 px-8">{{ __('+') }}</x-primary-button>
         </div>
 
     </form>
