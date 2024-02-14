@@ -18,7 +18,7 @@ new class extends Component
     #[On('category-modified')]
     public function getCategories(): void
     {
-        $this->categories = Category::orderBy('display_order', 'asc')
+        $this->categories = Category::where('user_id', \Auth::user()->id)->orderBy('display_order', 'asc')
             ->get();
     }
 
@@ -61,6 +61,7 @@ new class extends Component
                             {{ __($category->name) }}
                         </x-nav-link>
                     @endforeach
+                    <livewire:categories.modal />
                 </div>
             </div>
 
