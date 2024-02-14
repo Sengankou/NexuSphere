@@ -4,11 +4,11 @@
     </button>
 
     @if ($modalVisibility)
-        <div class="fixed z-10 inset-0 overflow-auto">
+        <div class="fixed z-10 inset-0 overflow-auto modal-container">
             <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
                 <div class="fixed inset-0 bg-slate-400 bg-opacity-60 transition-opacity"></div>
 
-                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="inline-block align-bottom bg-slate-700 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                     <div class="bg-slate-900 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <h3 class="text-white leading-6 font-medium ">
                             カテゴリの編集
@@ -35,8 +35,8 @@
                             </ol>
                         </div>
                     </div>
-                    <div class="bg-slate-700 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                        <x-primary-button wire:click="closeModal()" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border px-4 py-2 text-base font-medium text-gray-700">
+                    <div class="bg-slate-700 mx-4 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                        <x-primary-button wire:click="closeModal()" type="button" class="mt-2 w-full inline-flex justify-center rounded-md border px-4 py-2 text-base font-medium text-gray-700">
                             閉じる
                         </x-primary-button>
                     </div>
@@ -46,3 +46,11 @@
     @endif
 
 </div>
+
+<script>
+    document.addEventListener('keydown', function(event) {
+        if(event.key === "Escape") {
+            @this.closeModal();
+        }
+    });
+</script>
