@@ -1,13 +1,14 @@
 
 <div class="text-white">
     <div class="m-0 p-0">
-        <ul class="m-0">
+        <ul sub-drag-root="reorder" class="m-0">
             @foreach ( $subcategories as $subcategory)
-                <li class="my-2 px-3 py-1 bg-indigo-800/40 overflow-hidden shadow-none sm:rounded-lg ring-2 ring-inset ring-blue-300/60">
+                <li sub-drag-item="{{ $subcategory->id }}" draggable="true" wire:key="{{ $subcategory->id }}" class="my-2 px-3 py-1 bg-indigo-800/40 overflow-hidden shadow-none sm:rounded-lg ring-2 ring-inset ring-blue-300/60">
                     <div class="flex">
                         <h3 class="text-xl font-medium ">
                             {{ $subcategory->name }}
                         </h3>
+                        {{-- <p class="text-xl font-medium"> 　{{ $subcategory->display_order }} </p> --}}
                         @if ($link_editing[$subcategory->id] === false)
                             <button class="h-5 w-auto ml-3 my-auto" wire:click="editActivate({{ $subcategory->id }})">
                                 <x-edit-logo class="m-0.5 p-0 w-auto h-auto fill-current text-slate-300 hover:text-red-400 rounded border border-slate-300 hover:border-red-400" />
