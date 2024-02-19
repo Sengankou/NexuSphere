@@ -21,7 +21,15 @@
                                         <p class="text-base text-slate-200">
                                             　{{ $category->name }} / id:{{ $category->id }} / {{ $category->display_order}}
                                         </p>
-                                        <x-delete-logo2 wire:click="deleteCategory({{ $category->id }})" class="ml-auto p-0 w-5 h-5 fill-current text-red-300 hover:text-red-600" />
+                                        <button
+                                            type="button"
+                                            wire:click="deleteCategory({{ $category->id }})"
+                                            wire:confirm="{{ __("このカテゴリに含まれるすべてのサブカテゴリとリンクが消滅します。本当に削除しますか？") }}"
+                                            class="ml-auto p-0"
+                                        >
+                                            <x-delete-logo2 class="w-5 h-5 fill-current text-red-300 hover:text-red-600" />
+                                        </button>
+
                                     </li>
                                 @endforeach
                                 <li class="mt-2">

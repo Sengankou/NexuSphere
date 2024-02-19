@@ -7,14 +7,14 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <a href="updates">
-                <div class="bg-slate-800/50 overflow-hidden shadow-none sm:rounded-lg bg-gradient-to-bl from-slate-700/50 ring-1 ring-inset p-4 mb-4">
+            <a href="{{ route('updates') }}">
+                <div class="bg-slate-800/50 overflow-hidden shadow-none sm:rounded-lg bg-gradient-to-bl from-slate-700/50 ring-1 ring-inset p-4 mb-6">
                     <div class="text-xl px-10 py-2 text-white">
                         {{ __("Updates") }}
                     </div>
                 </div>
             </a>
-            <a>
+            <a href="{{ route('feedbacks') }}">
                 <div class="bg-slate-800/50 overflow-hidden shadow-none sm:rounded-lg bg-gradient-to-bl from-slate-700/50 ring-1 ring-inset p-4 mb-4">
                     <div class="text-xl px-10 py-2 text-white">
                         {{ __("Feedbacks") }}
