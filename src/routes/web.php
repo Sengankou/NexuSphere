@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,13 @@ Route::view('profile', 'profile')
 Route::get('/dashboard/{category}', [CategoryController::class, 'showByName'])
     ->middleware(['auth'])
     ->name('category.show');
+
+Route::view('updates', 'updates')
+    ->middleware(['auth', 'verified'])
+    ->name('updates');
+
+Route::get('feedbacks', [FeedbackController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('feedbacks');
 
 require __DIR__.'/auth.php';

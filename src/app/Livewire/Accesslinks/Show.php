@@ -5,6 +5,7 @@ namespace App\Livewire\Accesslinks;
 use Livewire\Component;
 use Illuminate\Database\Eloquent\Collection;
 use App\Models\Accesslink;
+use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\On;
 
 class Show extends Component
@@ -12,6 +13,8 @@ class Show extends Component
     public Collection $accesslinks;
     public $subcategory_id;
     public $favicon_urls;
+
+    public $link_editing = false;
 
     public function mount(): void
     {
@@ -41,6 +44,31 @@ class Show extends Component
             $query->where('id', $this->subcategory_id);
         })->orderBy('display_order', 'asc')
             ->get();
+        $this->getFaviconUrls();
+    }
+
+    #[On('edit-activated')]
+    public function editActivated($subcat_id){
+        if ($this->subcategory_id == $subcat_id) {
+            $this->link_editing = true;
+        }
+    }
+
+    #[On('edit-deactivated')]
+    public function editDeactivated($subcat_id){
+        if ($this->subcategory_id == $subcat_id) {
+            $this->link_editing = false;
+        }
+    }
+
+    public function delete($id)
+    {
+        $deleted_accesslink = Accesslink::find($id);
+        $deleted_accesslink->delete();
+        // Remove the deleted accesslink from the collection
+        $this->accesslinks = $this->accesslinks->filter(function ($value, $key) use ($id) {
+            return $value->id != $id;
+        });
         $this->getFaviconUrls();
     }
 
