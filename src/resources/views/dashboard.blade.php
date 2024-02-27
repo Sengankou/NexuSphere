@@ -8,15 +8,15 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <a href="{{ route('updates') }}">
-                <div class="bg-slate-800/50 overflow-hidden shadow-none sm:rounded-lg bg-gradient-to-bl from-slate-700/50 ring-1 ring-inset p-4 mb-6">
-                    <div class="text-xl px-10 py-2 text-white">
+                <div class="text-white hover:text-red-300 bg-slate-800/50 overflow-hidden shadow-none sm:rounded-lg bg-gradient-to-bl from-slate-700/50 ring-1 ring-inset p-4 mb-6">
+                    <div class="text-xl px-10 py-2">
                         {{ __("Updates") }}
                     </div>
                 </div>
             </a>
             <a href="{{ route('feedbacks') }}">
-                <div class="bg-slate-800/50 overflow-hidden shadow-none sm:rounded-lg bg-gradient-to-bl from-slate-700/50 ring-1 ring-inset p-4 mb-4">
-                    <div class="text-xl px-10 py-2 text-white">
+                <div class="text-white hover:text-red-300 bg-slate-800/50 overflow-hidden shadow-none sm:rounded-lg bg-gradient-to-bl from-slate-700/50 ring-1 ring-inset p-4 mb-4">
+                    <div class="text-xl px-10 py-2">
                         {{ __("Feedbacks") }}
                     </div>
                 </div>
